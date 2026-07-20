@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inkbound</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="top-header">
+        <h1>Inkbound</h1>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#search">Search</a>
+            <a href="#genres">Genres</a>
+            <a href="#results">Results</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <p class="star">✦</p>
+            <h2>Find your<br>next chapter</h2>
+            <p class="subtitle">SEARCH · DISCOVER · COLLECT</p>
+            <a href="#search" class="hero-button">BEGIN SEARCHING</a>
+        </section>
+
+        <section class="search-section" id="search">
+            <h3>Search for a Book</h3>
+            <p>Search by book title or author name.</p>
+
+            <form method="GET" action="/">
+                <input 
+                    type="text" 
+                    name="search" 
+                    placeholder="Search by title or author name"
+                    value="{{ search_text }}"
+                >
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="genre-section" id="genres">
+            <h3>Browse by Genre</h3>
+            <p>Filter the book results by genre.</p>
+
+            <form method="GET" action="/">
+                <select name="genre">
+                    <option value="">All Genres</option>
+
+                    {% for genre in genres %}
+                        <option value="{{ genre.Genre }}"
+                            {% if selected_genre == genre.Genre %}
+                                selected
+                            {% endif %}
+                        >
+                            {{ genre.Genre }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Filter</button>
+            </form>
+        </section>
+
+        <section class="results-section" id="results">
+            <div class="section-title">
+                <span></span>
+                <h3>RESULTS</h3>
+                <span></span>
+            </div>
+
+            <div class="book-grid">
+
+                {% if books %}
+
+                    {% for book in books %}
+                        <article class="book-card">
+                            <div class="cover-placeholder"></div>
+
+                            <div class="book-info">
+                                <h4>{{ book.Book }}</h4>
+                                <p class="author">{{ book.AuthorName }}</p>
+                                <p class="genre">{{ book.Genres }}</p>
+                                <p class="rating">★ {{ book.Avg_Rating }}</p>
+                            </div>
+                        </article>
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="no-results">No matching books found.</p>
+
+                {% endif %}
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

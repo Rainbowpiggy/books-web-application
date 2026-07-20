@@ -1,0 +1,263 @@
+body {
+    margin: 0;
+    background-color: #0b0710;
+    color: #f3e9dc;
+    font-family: Arial, sans-serif;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+    border-bottom: 1px solid #342034;
+    background-color: #0b0710;
+}
+
+.top-header h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 42px;
+    color: #f3d7a0;
+}
+
+nav a {
+    color: #f3d7a0;
+    text-decoration: none;
+    margin-left: 28px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 80px;
+    background: linear-gradient(#160c1d, #0b0710);
+}
+
+.star {
+    color: #d1a85f;
+    font-size: 26px;
+}
+
+.hero h2 {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 70px;
+    line-height: 1.15;
+    margin: 10px 0;
+    color: #f3e9dc;
+}
+
+.subtitle {
+    letter-spacing: 6px;
+    color: #a894a6;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 18px 55px;
+    border: 2px solid #c9a96a;
+    border-radius: 40px;
+    color: #f3d7a0;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero-button:hover {
+    background-color: #c9a96a;
+    color: #0b0710;
+}
+
+.search-section,
+.genre-section {
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.search-section h3,
+.genre-section h3 {
+    color: #d1a85f;
+    letter-spacing: 3px;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.search-section p,
+.genre-section p {
+    color: #a894a6;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+input,
+select {
+    padding: 20px;
+    border-radius: 40px;
+    border: 2px solid #4b2f4c;
+    background-color: #160c1d;
+    color: #f3e9dc;
+    font-size: 18px;
+}
+
+input {
+    width: 55%;
+}
+
+select {
+    width: 40%;
+}
+
+input::placeholder {
+    color: #a894a6;
+}
+
+button {
+    padding: 18px 35px;
+    border-radius: 40px;
+    border: 2px solid #c9a96a;
+    background-color: transparent;
+    color: #f3d7a0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c9a96a;
+    color: #0b0710;
+}
+
+.results-section {
+    padding: 30px 8% 90px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.section-title span {
+    height: 1px;
+    width: 30%;
+    background-color: #4b2f4c;
+}
+
+.section-title h3 {
+    color: #d1a85f;
+    letter-spacing: 4px;
+    font-size: 26px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.book-card {
+    background-color: #1a1022;
+    border: 2px solid #4b2f4c;
+    border-radius: 60px 60px 15px 15px;
+    overflow: hidden;
+    text-align: center;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-placeholder {
+    height: 220px;
+    background-color: #26172d;
+    border-bottom: 1px solid #4b2f4c;
+}
+
+.book-info {
+    padding: 25px 22px 30px;
+}
+
+.book-card h4 {
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #f3e9dc;
+    font-size: 24px;
+    line-height: 1.15;
+    margin: 10px auto 15px;
+    max-width: 90%;
+}
+
+.book-card p {
+    color: #a894a6;
+    margin: 10px auto;
+    max-width: 90%;
+    line-height: 1.35;
+    word-wrap: break-word;
+}
+
+.author {
+    font-size: 18px;
+}
+
+.genre {
+    font-size: 14px;
+}
+
+.rating {
+    color: #d1a85f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.no-results {
+    grid-column: 1 / 3;
+    text-align: center;
+    color: #a894a6;
+    font-size: 22px;
+}
+
+@media (max-width: 800px) {
+    .top-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    .hero h2 {
+        font-size: 48px;
+    }
+
+    input,
+    select {
+        width: 90%;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .no-results {
+        grid-column: 1;
+    }
+}
